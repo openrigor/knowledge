@@ -34,4 +34,4 @@ Never fabricate content in a language you were asked for but that doesn't exist.
 ## Related
 - [CONTRIBUTING.md](CONTRIBUTING.md) — house conventions for writing
 - [AGENTS.md](AGENTS.md) — contract for AI contributors
-- Research catalog: https://github.com/evaluchat/research — read its `AGENT.md` for research-truth navigation
+- Research catalog: https://github.com/openrigor/research — read its `AGENT.md` for research-truth navigation

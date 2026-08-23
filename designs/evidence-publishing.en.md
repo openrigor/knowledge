@@ -12,19 +12,19 @@ timestamp: 2026-08-17T15:21:42Z
 generated: { by: codex/gpt-5, at: 2026-08-17T15:21:42Z }
 sources:
   - id: evidence-roles
-    resource: https://github.com/evaluchat/research/blob/main/governance/evidence-roles.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/evidence-roles.en.md
     title: Shared evidence roles — how every method files a run (research catalog)
   - id: contribution-ladder
-    resource: https://github.com/evaluchat/research/blob/main/governance/contribution-ladder.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/contribution-ladder.en.md
     title: The contribution ladder — how teachers contribute to research
   - id: method-recipe
-    resource: https://github.com/evaluchat/knowledge/blob/main/playbooks/method-recipe.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/playbooks/method-recipe.en.md
     title: The method recipe — from research question to published method
   - id: platform-capabilities
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/platform-capabilities.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/platform-capabilities.en.md
     title: Platform capabilities — public-beta runtime contract
   - id: measuring-subjective-evidence
-    resource: https://github.com/evaluchat/knowledge/blob/main/references/how-to-measure-anything-evidence.md
+    resource: https://github.com/openrigor/knowledge/blob/main/references/how-to-measure-anything-evidence.md
     title: Measuring Subjective Evidence — Hubbard Reference
 ---
 
@@ -36,7 +36,7 @@ sources:
 
 ## 1. Problem
 
-Methods publish to `evaluchat/research` today without an enforceable evidence contract, and
+Methods publish to `openrigor/research` today without an enforceable evidence contract, and
 filing evidence is a manual, human-only task (a contributor copies an `evidence-template/`
 directory and fills eight role files by hand). The platform has no A/B machinery and, for the
 assignment stress test in particular, evidence is inherently a single-case, subjective
@@ -165,7 +165,7 @@ the system/owner and observation/reflection boundaries.
    `stage`, `generated.by` incl. AI-assistance disclosure if the assistant helped draft) + the
    filled sections + the provenance block.
 3. The server (Valery Bot.ha) opens a **PR** into the configured destination repo (default
-   `evaluchat/research`; private repo destination later, same flow).
+   `openrigor/research`; private repo destination later, same flow).
 4. On PR open, okf-lint CI runs. **Auto-merge rule** (system-orchestrated submissions): if
    (a) provenance + consent declarations are present and machine-checked, (b) the bundle's
    declared stage ≤ documented-experience, (c) okf-lint passes, then the bot may merge the PR

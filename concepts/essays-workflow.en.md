@@ -5,18 +5,18 @@ lang: en
 origin: native
 status: stable
 title: 'Essays workflow — proportional drafting unlock'
-description: 'How the Evaluchat essays feature gates drafting support behind dialogic contribution (CAMDLE), as implemented in Canvas — the implementation source of truth.'
-tags: [evaluchat, essays, canvas, camdle, teaching-prototype]
+description: 'How the OpenRigor essays feature gates drafting support behind dialogic contribution (CAMDLE), as implemented in Canvas — the implementation source of truth.'
+tags: [openrigor, essays, canvas, camdle, teaching-prototype]
 applies_to: 0.5.9
 sources:
   - id: camdle-theory
-    resource: https://github.com/evaluchat/research/blob/main/theory/camdle.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/camdle.en.md
     title: 'CAMDLE — research question and theory (unproven)'
   - id: threshold-calibration
-    resource: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md
     title: 'Threshold calibration — research question (open)'
   - id: white-paper
-    resource: https://docs.evaluchat.com/research/camdle-white-paper.pdf
+    resource: https://docs.openrigor.com/research/camdle-white-paper.pdf
     title: 'CAMDLE white paper'
 generated:
   by: opencode-go/deepseek-v4-flash
@@ -27,11 +27,11 @@ generated:
 
 # Essays workflow — proportional drafting unlock
 
-> **Applies to:** Canvas apps/web **0.5.9** (dev line), the Evaluchat teaching prototype built on the open-canvas fork. This concept documents the essays feature as shipped in that version.
+> **Applies to:** Canvas apps/web **0.5.9** (dev line), the OpenRigor teaching prototype built on the open-canvas fork. This concept documents the essays feature as shipped in that version.
 
 ## Overview
 
-The essays workflow is Evaluchat's student-facing writing experience: a constrained AI chat paired with a drafting canvas. Students work in a split-screen interface — a dialogue panel beside an editable markdown document — that deliberately mirrors the interaction habits of consumer AI tools. It is a familiar, conversational, prompt-driven experience, not a lockdown exam browser.
+The essays workflow is OpenRigor's student-facing writing experience: a constrained AI chat paired with a drafting canvas. Students work in a split-screen interface — a dialogue panel beside an editable markdown document — that deliberately mirrors the interaction habits of consumer AI tools. It is a familiar, conversational, prompt-driven experience, not a lockdown exam browser.
 
 The core constraint: the model cannot generate the whole assignment from a single prompt. Drafting support is released conditionally, after the student has contributed enough ideas, evidence, questions, and language through dialogue — the CAMDLE design (see [camdle-theory]). The workflow keeps the student's conceptual and linguistic work visible and consequential: what the student does in the dialogue determines what assistance becomes available.
 
@@ -74,7 +74,7 @@ A client-side tracking aggregator collects process signals and emits compact `se
 
 Teachers see these as **Engagement Metrics** on the submission view. A high paste ratio (e.g. more than ~30% pasted) may surface as a descriptive badge — a conversation starter, not a verdict.
 
-**Boundary: process evidence is not authorship detection.** These are mechanical observations about how work came together; they do not prove who authored a sentence or whether learning occurred. Evaluchat produces no integrity score, no "cheating" flag, and no automated integrity verdict of any kind. Signals are context for human judgment: teachers read them alongside the transcript, the draft, and the assignment context, and decide what, if anything, is worth discussing with the student. Engagement metrics, not integrity flags; process signals, not cheating indicators. The product does no proctoring (no webcam, lockdown, or screen recording), and it cannot detect off-device or mediated behaviour such as retyping, dictation, paper notes, or assistance from a second device.
+**Boundary: process evidence is not authorship detection.** These are mechanical observations about how work came together; they do not prove who authored a sentence or whether learning occurred. OpenRigor produces no integrity score, no "cheating" flag, and no automated integrity verdict of any kind. Signals are context for human judgment: teachers read them alongside the transcript, the draft, and the assignment context, and decide what, if anything, is worth discussing with the student. Engagement metrics, not integrity flags; process signals, not cheating indicators. The product does no proctoring (no webcam, lockdown, or screen recording), and it cannot detect off-device or mediated behaviour such as retyping, dictation, paper notes, or assistance from a second device.
 
 ## Proportional scaffolding and the unlock threshold
 
@@ -86,5 +86,5 @@ This concept pins `applies_to: 0.5.9` — the Canvas apps/web version on the dev
 
 When the pinned version is superseded, update this concept via a pull request to the knowledge repository: bump `applies_to` to the new version, adjust the body to match the newer behaviour, and note the change. Keep `status: stable` only while the description matches a shipped version.
 
-[camdle-theory]: https://github.com/evaluchat/research/blob/main/theory/camdle.en.md
-[threshold-calibration]: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+[camdle-theory]: https://github.com/openrigor/research/blob/main/theory/camdle.en.md
+[threshold-calibration]: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md

@@ -6,18 +6,18 @@ origin: translation
 status: stable
 title: 'Flujo de trabajo de ensayos — desbloqueo proporcional de la redacción'
 title_local: 'Flujo de trabajo de ensayos — desbloqueo proporcional de la redacción'
-description: 'Cómo la función de ensayos de Evaluchat condiciona el soporte de redacción a la contribución dialógica previa (CAMDLE), según lo implementado en Canvas.'
-tags: [evaluchat, essays, canvas, camdle, teaching-prototype]
+description: 'Cómo la función de ensayos de OpenRigor condiciona el soporte de redacción a la contribución dialógica previa (CAMDLE), según lo implementado en Canvas.'
+tags: [openrigor, essays, canvas, camdle, teaching-prototype]
 applies_to: 0.5.9
 sources:
   - id: camdle-theory
-    resource: https://github.com/evaluchat/research/blob/main/theory/camdle.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/camdle.en.md
     title: 'CAMDLE — research question and theory (unproven)'
   - id: threshold-calibration
-    resource: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md
     title: 'Threshold calibration — research question (open)'
   - id: white-paper
-    resource: https://docs.evaluchat.com/research/camdle-white-paper.pdf
+    resource: https://docs.openrigor.com/research/camdle-white-paper.pdf
     title: 'CAMDLE white paper'
 generated:
   by: opencode-go/deepseek-v4-flash
@@ -28,11 +28,11 @@ generated:
 
 # Flujo de trabajo de ensayos — desbloqueo proporcional de la redacción
 
-> **Se aplica a:** Canvas apps/web **0.5.9** (línea de desarrollo), el prototipo de enseñanza de Evaluchat construido sobre el fork de open-canvas. Este concepto documenta la función de ensayos tal como se distribuye en esa versión.
+> **Se aplica a:** Canvas apps/web **0.5.9** (línea de desarrollo), el prototipo de enseñanza de OpenRigor construido sobre el fork de open-canvas. Este concepto documenta la función de ensayos tal como se distribuye en esa versión.
 
 ## Visión general
 
-El flujo de trabajo de ensayos es la experiencia de escritura de Evaluchat orientada al estudiante: un chat de IA restringido combinado con un lienzo de redacción. Los estudiantes trabajan en una interfaz de pantalla dividida — un panel de diálogo junto a un documento Markdown editable — que imita deliberadamente los hábitos de interacción de las herramientas de IA de consumo. Es una experiencia familiar, conversacional e impulsada por indicaciones, no un navegador de examen bloqueado.
+El flujo de trabajo de ensayos es la experiencia de escritura de OpenRigor orientada al estudiante: un chat de IA restringido combinado con un lienzo de redacción. Los estudiantes trabajan en una interfaz de pantalla dividida — un panel de diálogo junto a un documento Markdown editable — que imita deliberadamente los hábitos de interacción de las herramientas de IA de consumo. Es una experiencia familiar, conversacional e impulsada por indicaciones, no un navegador de examen bloqueado.
 
 La restricción central: el modelo no puede generar la asignación completa a partir de una sola indicación. El soporte de redacción se libera de forma condicional, después de que el estudiante haya aportado suficientes ideas, evidencia, preguntas y lenguaje a través del diálogo — el diseño CAMDLE (véase [camdle-theory]). El flujo de trabajo mantiene el trabajo conceptual y lingüístico del estudiante visible y relevante: lo que el estudiante hace en el diálogo determina qué asistencia queda disponible.
 
@@ -75,7 +75,7 @@ Un agregador de seguimiento del lado del cliente recoge señales de proceso y em
 
 Los docentes lo ven como **Métricas de participación** en la vista de entrega. Una proporción alta de pegado (p. ej., más de ~30 % pegado) puede aparecer como una insignia descriptiva — un punto de partida para la conversación, no un veredicto.
 
-**Límite: la evidencia de proceso no es detección de autoría.** Son observaciones mecánicas sobre cómo se construyó el trabajo; no demuestran quién escribió una frase ni si hubo aprendizaje. Evaluchat no produce ninguna puntuación de integridad, ni marca de «trampa», ni ningún veredicto automatizado de integridad. Las señales son contexto para el juicio humano: los docentes las leen junto con la transcripción, el borrador y el contexto de la asignación, y deciden si hay algo que merezca la pena comentar con el estudiante. Métricas de participación, no indicadores de integridad; señales de proceso, no indicadores de trampa. El producto no realiza supervisión (sin cámara web, bloqueo del sistema ni grabación de pantalla) y no puede detectar comportamientos fuera del dispositivo o mediados, como volver a teclear, el dictado, las notas en papel o la asistencia desde un segundo dispositivo.
+**Límite: la evidencia de proceso no es detección de autoría.** Son observaciones mecánicas sobre cómo se construyó el trabajo; no demuestran quién escribió una frase ni si hubo aprendizaje. OpenRigor no produce ninguna puntuación de integridad, ni marca de «trampa», ni ningún veredicto automatizado de integridad. Las señales son contexto para el juicio humano: los docentes las leen junto con la transcripción, el borrador y el contexto de la asignación, y deciden si hay algo que merezca la pena comentar con el estudiante. Métricas de participación, no indicadores de integridad; señales de proceso, no indicadores de trampa. El producto no realiza supervisión (sin cámara web, bloqueo del sistema ni grabación de pantalla) y no puede detectar comportamientos fuera del dispositivo o mediados, como volver a teclear, el dictado, las notas en papel o la asistencia desde un segundo dispositivo.
 
 ## Andamiaje proporcional y umbral de desbloqueo
 
@@ -87,5 +87,5 @@ Este concepto fija `applies_to: 0.5.9` — la versión de Canvas apps/web en la 
 
 Cuando la versión fijada quede superada, actualice este concepto mediante una pull request al repositorio de conocimiento: actualice `applies_to` a la nueva versión, ajuste el cuerpo para reflejar el comportamiento más reciente y anote el cambio. Mantenga `status: stable` solo mientras la descripción coincida con una versión distribuida.
 
-[camdle-theory]: https://github.com/evaluchat/research/blob/main/theory/camdle.en.md
-[threshold-calibration]: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+[camdle-theory]: https://github.com/openrigor/research/blob/main/theory/camdle.en.md
+[threshold-calibration]: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md

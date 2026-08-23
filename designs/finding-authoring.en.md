@@ -12,16 +12,16 @@ timestamp: 2026-08-19T09:32:32Z
 generated: { by: codex/gpt-5, at: 2026-08-19T09:32:32Z }
 sources:
   - id: evidence-publishing
-    resource: https://github.com/evaluchat/knowledge/blob/main/designs/evidence-publishing.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/designs/evidence-publishing.en.md
     title: Evidence publishing mechanics — the workspace Evidence action
   - id: research-method
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/research-method.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/research-method.en.md
     title: Research method — how methods use platform capabilities and levers
   - id: measuring-subjective-evidence
-    resource: https://github.com/evaluchat/knowledge/blob/main/references/how-to-measure-anything-evidence.md
+    resource: https://github.com/openrigor/knowledge/blob/main/references/how-to-measure-anything-evidence.md
     title: Measuring Subjective Evidence — Hubbard Reference
   - id: review-protocol
-    resource: https://github.com/evaluchat/research/blob/main/governance/review-protocol.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/review-protocol.en.md
     title: Claim governance — review protocol for findings
 ---
 
@@ -269,6 +269,6 @@ make its requirements easier to inspect, not duplicate or override them.
 
 [1] [Evidence publishing mechanics](evidence-publishing.en.md)
 
-[2] [Claim governance — review protocol for findings](https://github.com/evaluchat/research/blob/main/governance/review-protocol.en.md)
+[2] [Claim governance — review protocol for findings](https://github.com/openrigor/research/blob/main/governance/review-protocol.en.md)
 
-[3] [Measuring Subjective Evidence — Hubbard Reference](https://github.com/evaluchat/knowledge/blob/main/references/how-to-measure-anything-evidence.md)
+[3] [Measuring Subjective Evidence — Hubbard Reference](https://github.com/openrigor/knowledge/blob/main/references/how-to-measure-anything-evidence.md)

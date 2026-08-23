@@ -6,26 +6,26 @@ origin: native
 status: draft
 title: The method recipe — from research question to published method
 description: "Given a research question, specify the Method: the canonical form, an eight-primitive design checklist, a worked example (Essays / ai-assisted-essay), and the rules for recording version and levers."
-tags: [evaluchat, canvas, method, recipe, levers, okf]
+tags: [openrigor, canvas, method, recipe, levers, okf]
 applies_to: 0.5.9
 generated:
   by: cursor-grok/4.6
   at: 2026-08-13T14:48:00Z
 sources:
   - id: research-method
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/research-method.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/research-method.en.md
     title: Research method — how methods use platform capabilities and levers (knowledge catalog)
   - id: ai-assisted-essay
-    resource: https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/
+    resource: https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/
     title: ai-assisted-essay — published method (research catalog)
   - id: threshold-calibration
-    resource: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md
     title: Threshold calibration — research question (open)
 ---
 
 # The method recipe — from research question to published method
 
-> **Applies to:** Canvas apps/web **0.5.9** (dev line). Companion to [research-method](../concepts/research-method.en.md); worked example: [essays-workflow](../concepts/essays-workflow.en.md) / [ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/).
+> **Applies to:** Canvas apps/web **0.5.9** (dev line). Companion to [research-method](../concepts/research-method.en.md); worked example: [essays-workflow](../concepts/essays-workflow.en.md) / [ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/).
 
 ## What the recipe is
 
@@ -33,7 +33,7 @@ The recipe is **not** "here's how to build a feature". It is:
 
 > **Given a research question, specify the Method** — which Knowledge-documented levers it selects, the intervention, and the evidence that method will file.
 
-A Method is a published, versioned way of investigating one or more research questions. Knowledge (this catalog) documents what Evaluchat can do. Research documents the question, the method, the evidence, and any later finding. The recipe is how a research question becomes a method specification that uses named platform capabilities.
+A Method is a published, versioned way of investigating one or more research questions. Knowledge (this catalog) documents what OpenRigor can do. Research documents the question, the method, the evidence, and any later finding. The recipe is how a research question becomes a method specification that uses named platform capabilities.
 
 ## The canonical form
 
@@ -58,7 +58,7 @@ Work through each primitive; leave a cell empty if the method genuinely does not
 
 ## Worked example: Essays as `ai-assisted-essay`
 
-The Essays assignment flow (the [essays-workflow](../concepts/essays-workflow.en.md) concept) is the product-side source of truth for the first published method, [ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/). Mapping the checklist to the actual implementation:
+The Essays assignment flow (the [essays-workflow](../concepts/essays-workflow.en.md) concept) is the product-side source of truth for the first published method, [ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/). Mapping the checklist to the actual implementation:
 
 1. **Workspace** — the student's split-screen canvas (dialogue + document).
 2. **Assistant role** — drafting support is released conditionally: proportional scaffolding. The model cannot generate the whole assignment from a single prompt; assistance unlocks after sufficient dialogic contribution. This is the **intervention** the method makes.
@@ -79,7 +79,7 @@ The eight primitives are a design checklist, not a universal method schema. A se
 
 - **Version** the method per the behaviour/evidence contract: a major bump when previous experiments become hard to compare (e.g. what counts as sufficient contribution changes), minor for new capabilities that don't alter existing semantics, patch for implementation fixes. The method version is independent of the canvas version.
 - **Record the levers** of every run: threshold, drafting gate, AI assistance, and any other per-method setting. The same method version with different lever values runs materially different interventions.
-- **Provenance**: evidence contributions must record `method: {id, version, levers}` and `canvas: {version}` — see the [research-method] concept and the research catalog's [ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/) method. Catalog YAML uses `levers:`; live product APIs and stored snapshots are not renamed in this pass.
+- **Provenance**: evidence contributions must record `method: {id, version, levers}` and `canvas: {version}` — see the [research-method] concept and the research catalog's [ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/) method. Catalog YAML uses `levers:`; live product APIs and stored snapshots are not renamed in this pass.
 
 ## What is not built yet
 
@@ -91,5 +91,5 @@ This playbook is a **specification tool, not a builder**. As of Canvas 0.5.9 the
 
 The Essays method is the proof that the pattern can be *named* and *described*; the tooling to *generate* method catalogs is future work relative to this playbook.
 
-[research-method]: https://github.com/evaluchat/knowledge/blob/main/concepts/research-method.en.md
-[threshold-calibration]: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+[research-method]: https://github.com/openrigor/knowledge/blob/main/concepts/research-method.en.md
+[threshold-calibration]: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md

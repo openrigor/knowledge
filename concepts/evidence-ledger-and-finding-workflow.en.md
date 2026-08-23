@@ -18,7 +18,7 @@ generated: { by: codex/gpt-5, at: 2026-08-20T10:10:33+02:00 }
 # Evidence Ledger and Finding workflow
 
 > User-facing documentation draft. This describes the Evidence Ledger and
-> light Finding functionality currently available on the Evaluchat `dev`
+> light Finding functionality currently available on the OpenRigor `dev`
 > environment at commit `649268e`. Production has not been promoted to this
 > version yet.
 
@@ -43,7 +43,7 @@ Published Evidence Ledger
 Finding starter
 ```
 
-Research questions remain a separate human choice. Evaluchat does not derive
+Research questions remain a separate human choice. OpenRigor does not derive
 questions from a ledger.
 
 ## What each step means
