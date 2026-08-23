@@ -6,7 +6,7 @@ origin: native
 status: deprecated
 title: Research apparatus (renamed to research-method)
 description: "Deprecated stub. The concept formerly called research-apparatus is now research-method. This file remains so existing GitHub URLs do not 404."
-tags: [evaluchat, canvas, apparatus, research, okf, deprecated]
+tags: [openrigor, canvas, apparatus, research, okf, deprecated]
 applies_to: 0.5.9
 generated:
   by: cursor-grok/4.6

@@ -17,7 +17,7 @@ generated: { by: codex/gpt-5, at: 2026-08-20T10:10:33+02:00 }
 
 # Researcher workflow: from Evidence Ledger to Finding
 
-> Draft task guide for the Evaluchat `dev` environment. The screens and
+> Draft task guide for the OpenRigor `dev` environment. The screens and
 > labels described here correspond to commit `649268e`; production has not yet
 > been promoted to this version.
 
