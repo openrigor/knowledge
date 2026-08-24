@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>evaluchat knowledge catalog</title>
+<title>openrigor knowledge catalog</title>
 <link rel="icon" href="favicon.ico" sizes="any"/>
 <link rel="stylesheet" href="assets/style.css"/>
 </head>
@@ -12,14 +12,14 @@
   <div class="header-inner">
     <div class="logo">
       <a href="index.html" aria-label="Knowledge catalog">
-        <img class="logo-mark" src="assets/evaluchat.png" width="32" height="32" alt=""/>
-        evaluchat
+        <img class="logo-mark" src="assets/openrigor.png" width="32" height="32" alt=""/>
+        openrigor
       </a>
     </div>
     <nav class="main-nav" aria-label="Primary navigation">
-      <a href="https://github.com/evaluchat/knowledge">GitHub</a>
-      <a href="https://github.com/evaluchat/knowledge/blob/main/README.md">README</a>
-      <a href="https://evaluchat.org/" class="nav-cta">Open evaluchat ↗</a>
+      <a href="https://github.com/openrigor/knowledge">GitHub</a>
+      <a href="https://github.com/openrigor/knowledge/blob/main/README.md">README</a>
+      <a href="https://openrigor.org/" class="nav-cta">Open openrigor ↗</a>
     </nav>
   </div>
 </header>
@@ -27,9 +27,9 @@
 <main class="page-wrap">
 
   <article class="content">
-<h1 id="evaluchat-knowledge-catalog">Evaluchat Knowledge Catalog</h1>
-<p>Open knowledge about how <strong>Evaluchat Canvas</strong> works — the product's features, prompts, and behaviour as actually shipped, documented so that teachers, developers, researchers, and AI agents can inspect, question, and improve it.</p>
-<p>This is the <strong>product truth</strong> half of Evaluchat's open knowledge platform:</p>
+<h1 id="openrigor-knowledge-catalog">OpenRigor Knowledge Catalog</h1>
+<p>Open knowledge about how <strong>OpenRigor Canvas</strong> works — the product's features, prompts, and behaviour as actually shipped, documented so that teachers, developers, researchers, and AI agents can inspect, question, and improve it.</p>
+<p>This is the <strong>product truth</strong> half of OpenRigor's open knowledge platform:</p>
 <table>
 <thead>
 <tr>
@@ -43,7 +43,7 @@
 <td>Research truth</td>
 </tr>
 <tr>
-<td>What Evaluchat can do</td>
+<td>What OpenRigor can do</td>
 <td>What we are investigating</td>
 </tr>
 <tr>
@@ -53,10 +53,10 @@
 </tbody>
 </table>
 <ul>
-<li><strong>Knowledge</strong> documents the platform: capabilities, workflows, and <strong>workspace templates</strong> such as Getting Started and Assignment brief. Those templates are product building blocks Evaluchat instantiates.</li>
+<li><strong>Knowledge</strong> documents the platform: capabilities, workflows, and <strong>workspace templates</strong> such as Getting Started and Assignment brief. Those templates are product building blocks OpenRigor instantiates.</li>
 <li><strong>Research</strong> documents investigations: a question, a <strong>Method</strong> that uses named platform features, the evidence that method produced, and any finding a human later claims.</li>
 </ul>
-<p>A Method selects <strong>levers</strong> (named switches such as <code>ai_assistance</code>, <code>drafting_gate</code>, <code>threshold</code>) whose meaning is defined here. Evaluchat <strong>runs</strong> that profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.</p>
+<p>A Method selects <strong>levers</strong> (named switches such as <code>ai_assistance</code>, <code>drafting_gate</code>, <code>threshold</code>) whose meaning is defined here. OpenRigor <strong>runs</strong> that profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.</p>
 <p>The two repositories are deliberately separated. Private strategy never appears in either.</p>
 <h2 id="format">Format</h2>
 <p>OKF v0.2 — Markdown files with YAML frontmatter. Each concept has a stable <code>id</code>, a <code>lang</code>, and a <code>status</code>. Frontmatter is always English (the catalogue/machine layer); the content body can be written in any language, per <code>lang</code>.</p>
@@ -69,7 +69,7 @@ playbooks/  # how to specify a Method on Canvas capabilities
 references/ # pointers to the research catalog (Phase 2)
 </code></pre>
 <h2 id="how-to-contribute">How to contribute</h2>
-<p>Read <a href="https://github.com/evaluchat/knowledge/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a> for the house conventions (frontmatter rules, language rules, PR checklist). The short version:</p>
+<p>Read <a href="https://github.com/openrigor/knowledge/blob/main/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a> for the house conventions (frontmatter rules, language rules, PR checklist). The short version:</p>
 <ol>
 <li>Concepts are Markdown + YAML frontmatter — no build step, no tooling.</li>
 <li>Every file needs <code>type</code>, <code>id</code>, <code>lang</code>, <code>title</code>, <code>description</code>, <code>status</code>.</li>
@@ -77,13 +77,13 @@ references/ # pointers to the research catalog (Phase 2)
 <li>Version-sensitive content pins <code>applies_to: &lt;canvas-version&gt;</code> and <code>stale_after</code>.</li>
 </ol>
 <h2 id="license">License</h2>
-<p>MIT — the docs and any scripts in this repository are MIT-licensed (see <a href="https://github.com/evaluchat/knowledge/tree/main/LICENSE"><code>LICENSE</code></a>). Contributions are accepted under the same terms; by opening a pull request you agree to license your contribution under MIT.</p>
+<p>MIT — the docs and any scripts in this repository are MIT-licensed (see <a href="https://github.com/openrigor/knowledge/tree/main/LICENSE"><code>LICENSE</code></a>). Contributions are accepted under the same terms; by opening a pull request you agree to license your contribution under MIT.</p>
 <h2 id="related">Related</h2>
 <ul>
-<li>Live research catalog: https://research.evaluchat.org</li>
-<li>Live knowledge catalog: https://knowledge.evaluchat.org</li>
-<li>Research catalog: https://github.com/evaluchat/research</li>
-<li>Evaluchat: https://evaluchat.org</li>
+<li>Live research catalog: https://research.openrigor.org</li>
+<li>Live knowledge catalog: https://knowledge.openrigor.org</li>
+<li>Research catalog: https://github.com/openrigor/research</li>
+<li>OpenRigor: https://openrigor.org</li>
 <li>OKF v0.2 — the portable knowledge format these catalogs use</li>
 </ul>
 <table>
@@ -99,7 +99,7 @@ references/ # pointers to the research catalog (Phase 2)
 <td>Research truth</td>
 </tr>
 <tr>
-<td>What Evaluchat can do</td>
+<td>What OpenRigor can do</td>
 <td>What we are investigating</td>
 </tr>
 <tr>
@@ -108,7 +108,7 @@ references/ # pointers to the research catalog (Phase 2)
 </tr>
 </tbody>
 </table>
-<p>A <strong>Method</strong> in the research catalog selects named <strong>levers</strong> documented here. Evaluchat runs that profile; this catalog does not store classroom evidence.</p>
+<p>A <strong>Method</strong> in the research catalog selects named <strong>levers</strong> documented here. OpenRigor runs that profile; this catalog does not store classroom evidence.</p>
 <h2 id="catalog-sections">Catalog sections</h2>
 <table>
 <thead>
@@ -127,8 +127,8 @@ references/ # pointers to the research catalog (Phase 2)
 <td>Design decision notes for platform features — rationale and agreed mechanics before implementation (draft)</td>
 </tr>
 <tr>
-<td><a href="https://knowledge.evaluchat.org/templates/">Templates</a></td>
-<td>Reviewed Markdown starters for the Evaluchat workspace (Getting Started, Assignment brief)</td>
+<td><a href="https://knowledge.openrigor.org/templates/">Templates</a></td>
+<td>Reviewed Markdown starters for the OpenRigor workspace (Getting Started, Assignment brief)</td>
 </tr>
 <tr>
 <td>Prompts</td>
@@ -190,25 +190,25 @@ references/ # pointers to the research catalog (Phase 2)
 <li><a href="concepts/research-method.html">Research method — how methods use platform capabilities and levers</a> — the two-catalog pattern (concept).</li>
 <li><a href="concepts/platform-capabilities.html">Platform capabilities — public-beta runtime contract</a> — AI modes, drafting gates, telemetry boundary, typed levers (concept, <code>applies_to: 0.5.9</code>).</li>
 <li><a href="playbooks/method-recipe.html">The method recipe — from research question to published method</a> — how to specify a Method (playbook).</li>
-<li>Published method (research truth): https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/</li>
+<li>Published method (research truth): https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/</li>
 </ul>
 <h2 id="related">Related</h2>
 <ul>
-<li>Research catalog (research truth — questions, methods, evidence, findings): https://github.com/evaluchat/research</li>
+<li>Research catalog (research truth — questions, methods, evidence, findings): https://github.com/openrigor/research</li>
 <li>OKF v0.2 — portable knowledge format</li>
 </ul>
-<h2>Recently updated</h2><table class="catalog"><thead><tr><th>Title / id</th><th>Type</th><th>Status</th><th>Updated</th></tr></thead><tbody><tr><td><a href="concepts/overview.html">Evaluchat — open research infrastructure for AI in education</a><br/><span class="muted"><code>overview</code></span></td><td>Concept</td><td>stable</td><td class="muted">2026-08-20</td></tr><tr><td><a href="concepts/evidence-ledger-and-finding-workflow.html">Evidence Ledger and Finding workflow</a><br/><span class="muted"><code>evidence-ledger-and-finding-workflow</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-20</td></tr><tr><td><a href="playbooks/evidence-ledger-to-finding.html">Researcher workflow: from Evidence Ledger to Finding</a><br/><span class="muted"><code>evidence-ledger-to-finding</code></span></td><td>Playbook</td><td>draft</td><td class="muted">2026-08-20</td></tr><tr><td><a href="designs/finding-authoring.html">Finding authoring — evidence ledgers and human-controlled claims</a><br/><span class="muted"><code>finding-authoring</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-19</td></tr><tr><td><a href="designs/finding-authoring-ux.html">Evidence Ledger workspace and light Finding authoring</a><br/><span class="muted"><code>finding-authoring-ux</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-19</td></tr><tr><td><a href="concepts/evidence-contribution.html">Evidence contribution — filing a concluded run to research</a><br/><span class="muted"><code>evidence-contribution</code></span></td><td>Concept</td><td>stable</td><td class="muted">2026-08-18</td></tr><tr><td><a href="designs/evidence-publishing.html">Evidence publishing mechanics — the workspace Evidence action</a><br/><span class="muted"><code>evidence-publishing</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-17</td></tr><tr><td><a href="playbooks/apparatus-recipe.html">The apparatus recipe (renamed to method-recipe)</a><br/><span class="muted"><code>apparatus-recipe</code></span></td><td>Playbook</td><td>deprecated</td><td class="muted">2026-08-13</td></tr></tbody></table>
+<h2>Recently updated</h2><table class="catalog"><thead><tr><th>Title / id</th><th>Type</th><th>Status</th><th>Updated</th></tr></thead><tbody><tr><td><a href="concepts/overview.html">OpenRigor — open research infrastructure for AI in education</a><br/><span class="muted"><code>overview</code></span></td><td>Concept</td><td>stable</td><td class="muted">2026-08-20</td></tr><tr><td><a href="concepts/evidence-ledger-and-finding-workflow.html">Evidence Ledger and Finding workflow</a><br/><span class="muted"><code>evidence-ledger-and-finding-workflow</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-20</td></tr><tr><td><a href="playbooks/evidence-ledger-to-finding.html">Researcher workflow: from Evidence Ledger to Finding</a><br/><span class="muted"><code>evidence-ledger-to-finding</code></span></td><td>Playbook</td><td>draft</td><td class="muted">2026-08-20</td></tr><tr><td><a href="designs/finding-authoring.html">Finding authoring — evidence ledgers and human-controlled claims</a><br/><span class="muted"><code>finding-authoring</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-19</td></tr><tr><td><a href="designs/finding-authoring-ux.html">Evidence Ledger workspace and light Finding authoring</a><br/><span class="muted"><code>finding-authoring-ux</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-19</td></tr><tr><td><a href="concepts/evidence-contribution.html">Evidence contribution — filing a concluded run to research</a><br/><span class="muted"><code>evidence-contribution</code></span></td><td>Concept</td><td>stable</td><td class="muted">2026-08-18</td></tr><tr><td><a href="designs/evidence-publishing.html">Evidence publishing mechanics — the workspace Evidence action</a><br/><span class="muted"><code>evidence-publishing</code></span></td><td>Concept</td><td>draft</td><td class="muted">2026-08-17</td></tr><tr><td><a href="playbooks/apparatus-recipe.html">The apparatus recipe (renamed to method-recipe)</a><br/><span class="muted"><code>apparatus-recipe</code></span></td><td>Playbook</td><td>deprecated</td><td class="muted">2026-08-13</td></tr></tbody></table>
 <p class="muted">14 concept groups · generated by build_site.py</p>
   </article>
 </main>
 <footer class="site-footer">
   <p>
-    <a href="https://evaluchat.org">evaluchat.com</a>
+    <a href="https://openrigor.org">openrigor.com</a>
     &middot; Knowledge catalog
-    &middot; <a href="https://github.com/evaluchat/knowledge">GitHub</a>
-    &middot; <a href="mailto:hello@evaluchat.com">hello@evaluchat.com</a>
+    &middot; <a href="https://github.com/openrigor/knowledge">GitHub</a>
+    &middot; <a href="mailto:hello@openrigor.com">hello@openrigor.com</a>
   </p>
-  <p class="copyright">© 2026 Evaluchat · Open Knowledge Format</p>
+  <p class="copyright">© 2026 OpenRigor · Open Knowledge Format</p>
 </footer>
 </body>
 </html>
