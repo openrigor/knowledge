@@ -45,7 +45,7 @@ jobs:
           fetch_file "scripts/theme/style.css" research_style.css
           fetch_file "scripts/theme/openrigor.png" research_openrigor.png
           fetch_file "scripts/theme/favicon.ico" research_favicon.ico
-          sed -e 's|OpenRigor/knowledge/blob/main|OpenRigor/research/blob/main|' \
+          sed -e 's|[Oo]pen[Rr]igor/knowledge/blob/main|openrigor/research/blob/main|' \
               -e 's|SITE_LABEL = "Knowledge catalog"|SITE_LABEL = "Research catalog"|' \
               -e 's|SITE_DOMAIN = "knowledge.openrigor.org"|SITE_DOMAIN = "research.openrigor.org"|' \
               scripts/build_site.py > /tmp/local_build_site.norm.py
