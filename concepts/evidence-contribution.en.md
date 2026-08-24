@@ -5,21 +5,21 @@ lang: en
 origin: native
 status: stable
 title: 'Evidence contribution — filing a concluded run to research'
-description: 'How the Evaluchat workspace Evidence action turns a concluded method run into an owned canvas thread, captures frozen-run provenance beside typed owner judgements, and files a single consent-checked Evidence Contribution into the research catalog via a bot-authored PR — as shipped.'
-tags: [evaluchat, evidence, methods, workspace, research, github, okf]
+description: 'How the OpenRigor workspace Evidence action turns a concluded method run into an owned canvas thread, captures frozen-run provenance beside typed owner judgements, and files a single consent-checked Evidence Contribution into the research catalog via a bot-authored PR — as shipped.'
+tags: [openrigor, evidence, methods, workspace, research, github, okf]
 applies_to: 0.5.9
 sources:
   - id: evidence-roles
-    resource: https://github.com/evaluchat/research/blob/main/governance/evidence-roles.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/evidence-roles.en.md
     title: 'Shared evidence roles — how every method files a run (research catalog)'
   - id: contribution-ladder
-    resource: https://github.com/evaluchat/research/blob/main/governance/contribution-ladder.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/contribution-ladder.en.md
     title: 'The contribution ladder — how teachers contribute to research'
   - id: method-recipe
-    resource: https://github.com/evaluchat/knowledge/blob/main/playbooks/method-recipe.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/playbooks/method-recipe.en.md
     title: 'The method recipe — from research question to published method'
   - id: evidence-publishing-design
-    resource: https://github.com/evaluchat/knowledge/blob/main/designs/evidence-publishing.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/designs/evidence-publishing.en.md
     title: 'Evidence publishing mechanics — design decisions'
 generated:
   by: opencode-go/deepseek-v4-flash
@@ -34,7 +34,7 @@ generated:
 
 # Evidence contribution — filing a concluded run to research
 
-> **Applies to:** Canvas apps/web **0.5.9** (dev line), the Evaluchat public
+> **Applies to:** Canvas apps/web **0.5.9** (dev line), the OpenRigor public
 > beta environment. The Evidence action is implemented and E2E-verified on the
 > dev line; production cutover of this build was still in progress at the time
 > of writing.
@@ -133,7 +133,7 @@ On submit the server (Valery Bot.ha, using a scoped GitHub token) assembles a
 - the provenance block.
 
 The server opens a **pull request** into the configured destination repo
-(default `evaluchat/research`; private-repo destinations later use the same
+(default `openrigor/research`; private-repo destinations later use the same
 flow). The research `okf-lint` CI runs on the PR. One of two outcomes:
 
 - **Auto-merge** — only when all of: provenance + consent declarations are
@@ -173,4 +173,4 @@ described here, and update via a pull request to the knowledge repository.
 The companion decision record remains [designs/evidence-publishing.en.md][evidence-publishing-design]
 (draft), which captures the agreed mechanics and open forks not yet built.
 
-[evidence-publishing-design]: https://github.com/evaluchat/knowledge/blob/main/designs/evidence-publishing.en.md
+[evidence-publishing-design]: https://github.com/openrigor/knowledge/blob/main/designs/evidence-publishing.en.md

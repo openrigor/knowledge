@@ -12,13 +12,13 @@ timestamp: 2026-08-19T09:32:32Z
 generated: { by: codex/gpt-5, at: 2026-08-19T09:32:32Z }
 sources:
   - id: finding-authoring
-    resource: https://github.com/evaluchat/knowledge/blob/main/designs/finding-authoring.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/designs/finding-authoring.en.md
     title: Finding authoring — evidence ledgers and human-controlled claims
   - id: evidence-publishing
-    resource: https://github.com/evaluchat/knowledge/blob/main/designs/evidence-publishing.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/designs/evidence-publishing.en.md
     title: Evidence publishing mechanics — the workspace Evidence action
   - id: review-protocol
-    resource: https://github.com/evaluchat/research/blob/main/governance/review-protocol.en.md
+    resource: https://github.com/openrigor/research/blob/main/governance/review-protocol.en.md
     title: Claim governance — review protocol for findings
   - id: github-protected-branches
     resource: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches
@@ -54,7 +54,7 @@ inspectable and citable without becoming a data-mining system or an AI verdict.
 | AI in configuration | The assistant can explain a field, clarify its `unknown` value, compare safe filter options, and describe the resulting preview. It cannot write filters, generate a ledger, or publish; every filter change is an explicit human action. |
 | Generate | **Generate ledger** deterministically creates a new, read-only Ledger Snapshot Canvas context. The configuration remains editable; the snapshot never is. |
 | AI in snapshot | The assistant can navigate and describe the sealed ledger with source citations, surface counterevidence and gaps, and explain why a comparison may be invalid. It cannot amend the snapshot, choose a finding claim, or publish. |
-| Publish | A human GitHub collaborator explicitly publishes a selected snapshot through a PR to public `evaluchat/research`. On merge, it is a citable, immutable `Evidence Ledger` at `evidence-ledgers/<ledger-id>.en.md`. |
+| Publish | A human GitHub collaborator explicitly publishes a selected snapshot through a PR to public `openrigor/research`. On merge, it is a citable, immutable `Evidence Ledger` at `evidence-ledgers/<ledger-id>.en.md`. |
 | Finding V1 | A normal Canvas **Finding starter** is a recommended Markdown template plus OKF/Research validation. It must declare one or more research questions and cite one or more *published* ledgers. It does not yet introduce a separate Finding workbench, claim-authoring AI, tier workflow, or reviewer-management UI. |
 
 The public repository is the only V1 destination. A connected GitHub account
@@ -254,7 +254,7 @@ search.
 
 The snapshot's **Publish** action is distinct from Generate. It first checks
 that the GitHub account connected to the workspace still has collaborator/write
-access to `evaluchat/research`; otherwise it reports the missing access and
+access to `openrigor/research`; otherwise it reports the missing access and
 creates no branch or PR.
 
 For an eligible user, Publish presents a read-only diff containing one file:
@@ -293,7 +293,7 @@ source_commit: <Research repository SHA>
 input_fingerprint: sha256:<canonical-manifest hash>
 render_hash: sha256:<rendered-ledger hash>
 resolver_version: <semver>
-generated: { by: evaluchat-ledger-service/<version>, at: <ISO timestamp> }
+generated: { by: openrigor-ledger-service/<version>, at: <ISO timestamp> }
 ---
 ```
 
@@ -482,7 +482,7 @@ of truth.
 
 [2] [Evidence publishing mechanics](evidence-publishing.en.md)
 
-[3] [Claim governance — review protocol for findings](https://github.com/evaluchat/research/blob/main/governance/review-protocol.en.md)
+[3] [Claim governance — review protocol for findings](https://github.com/openrigor/research/blob/main/governance/review-protocol.en.md)
 
 [4] [Managing protected branches — GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches)
 

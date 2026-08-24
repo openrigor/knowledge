@@ -6,7 +6,7 @@ origin: native
 status: deprecated
 title: The apparatus recipe (renamed to method-recipe)
 description: "Deprecated stub. The playbook formerly called apparatus-recipe is now method-recipe. This file remains so existing GitHub URLs do not 404."
-tags: [evaluchat, canvas, apparatus, recipe, okf, deprecated]
+tags: [openrigor, canvas, apparatus, recipe, okf, deprecated]
 applies_to: 0.5.9
 generated:
   by: cursor-grok/4.6

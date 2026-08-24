@@ -69,10 +69,10 @@ except ImportError:
 
 ROOT = Path(".").resolve()
 OUT = ROOT / "site"
-GITHUB_BLOB = "https://github.com/evaluchat/knowledge/blob/main/"
+GITHUB_BLOB = "https://github.com/openrigor/knowledge/blob/main/"
 REPO_URL = GITHUB_BLOB[: GITHUB_BLOB.index("/blob/")]
 SITE_LABEL = "Knowledge catalog"
-SITE_DOMAIN = "knowledge.evaluchat.org"
+SITE_DOMAIN = "knowledge.openrigor.org"
 SKIP_DIR_NAMES = {".github", "templates", ".git", "scripts", "site", "evidence-template"}
 EVIDENCE_TEMPLATE_FILENAME = "evidence-template.en.md"
 SKIP_FILE_NAMES = {EVIDENCE_TEMPLATE_FILENAME}
@@ -349,7 +349,7 @@ def page_shell(
     esc_title = html.escape(title)
     home = f"{base}index.html"
     favicon = f"{base}favicon.ico"
-    logo = f"{base}assets/evaluchat.png"
+    logo = f"{base}assets/openrigor.png"
     if not breadcrumbs:
         crumbs = ""
     elif nav:
@@ -387,13 +387,13 @@ def page_shell(
     <div class="logo">
       <a href="{home}" aria-label="{SITE_LABEL}">
         <img class="logo-mark" src="{logo}" width="32" height="32" alt=""/>
-        evaluchat
+        openrigor
       </a>
     </div>
     <nav class="main-nav" aria-label="Primary navigation">
       <a href="{REPO_URL}">GitHub</a>
       <a href="{GITHUB_BLOB}README.md">README</a>
-      <a href="https://evaluchat.org/" class="nav-cta">Open evaluchat ↗</a>
+      <a href="https://openrigor.org/" class="nav-cta">Open openrigor ↗</a>
     </nav>
   </div>
 </header>
@@ -406,12 +406,12 @@ def page_shell(
 </main>
 <footer class="site-footer">
   <p>
-    <a href="https://evaluchat.org">evaluchat.com</a>
+    <a href="https://openrigor.org">openrigor.com</a>
     &middot; {SITE_LABEL}
     &middot; <a href="{REPO_URL}">GitHub</a>
-    &middot; <a href="mailto:hello@evaluchat.com">hello@evaluchat.com</a>
+    &middot; <a href="mailto:hello@openrigor.com">hello@openrigor.com</a>
   </p>
-  <p class="copyright">© 2026 Evaluchat · Open Knowledge Format</p>
+  <p class="copyright">© 2026 OpenRigor · Open Knowledge Format</p>
 </footer>
 </body>
 </html>
@@ -423,7 +423,7 @@ def copy_theme_assets() -> None:
     theme_dir = Path(__file__).parent / "theme"
     assets_out = OUT / "assets"
     assets_out.mkdir(parents=True, exist_ok=True)
-    for name in ("evaluchat.png", "style.css"):
+    for name in ("openrigor.png", "style.css"):
         src = theme_dir / name
         if src.is_file():
             (assets_out / name).write_bytes(src.read_bytes())
@@ -476,7 +476,7 @@ def build_templates() -> None:
 
     index_body = (
         "<h1>Templates</h1>\n"
-        "<p class=\"lede\">Reviewed Markdown starters for the Evaluchat workspace.</p>\n"
+        "<p class=\"lede\">Reviewed Markdown starters for the OpenRigor workspace.</p>\n"
         '<table class="catalog"><thead><tr><th>Template</th><th>Description</th>'
         f'<th>Source</th></tr></thead><tbody>{"".join(rows)}</tbody></table>\n'
     )
@@ -499,7 +499,7 @@ def build_templates() -> None:
     missing = [str(path) for path in expected_files if not path.is_file()]
     if missing:
         raise RuntimeError(f"Template build assertion failed; missing: {', '.join(missing)}")
-    if "Welcome to Evaluchat" not in expected_files[1].read_text(encoding="utf-8"):
+    if "Welcome to OpenRigor" not in expected_files[1].read_text(encoding="utf-8"):
         raise RuntimeError("Template build assertion failed: preview body is missing")
     if expected_files[2].read_text(encoding="utf-8") != getting_started.path.read_text(
         encoding="utf-8"
@@ -950,7 +950,7 @@ def build() -> int:
     )
     landing_body = "\n".join(p for p in landing_parts if p)
     (OUT / "index.html").write_text(
-        page_shell(f"evaluchat {SITE_LABEL.lower()}", landing_body, breadcrumbs=False),
+        page_shell(f"openrigor {SITE_LABEL.lower()}", landing_body, breadcrumbs=False),
         encoding="utf-8",
     )
     (OUT / "catalog.json").write_text(

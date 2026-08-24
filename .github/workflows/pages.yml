@@ -23,31 +23,31 @@ jobs:
           fetch-depth: 0
 
       # Divergence guard: build_site.py + scripts/theme/ must track
-      # evaluchat/research on the same branch (dev now, main after merge).
+      # OpenRigor/research on the same branch (dev now, main after merge).
       # Only GITHUB_BLOB + SITE_LABEL may differ. A diverged generator fails
       # here so a stale render can never be published.
       - name: Check site generator sync with research
         run: |
           set -euo pipefail
           REF="${GITHUB_REF_NAME:-dev}"
-          API="https://api.github.com/repos/evaluchat/research/contents"
+          API="https://api.github.com/repos/openrigor/research/contents"
           # Fetch via the API (strongly consistent) — raw.githubusercontent.com
           # CDN-caches fresh pushes and can serve stale blobs for minutes.
           fetch_file() {
             curl -fsSL "${API}/$1?ref=${REF}" | python3 -c \
               "import json,sys,base64; sys.stdout.buffer.write(base64.b64decode(json.load(sys.stdin)['content']))" \
               > "/tmp/$2" || {
-                echo "ERROR: cannot fetch evaluchat/research@${REF} $1 — refusing to publish with an unverifiable mirror."
+                echo "ERROR: cannot fetch OpenRigor/research@${REF} $1 — refusing to publish with an unverifiable mirror."
                 exit 1
               }
           }
           fetch_file "scripts/build_site.py" research_build_site.py
           fetch_file "scripts/theme/style.css" research_style.css
-          fetch_file "scripts/theme/evaluchat.png" research_evaluchat.png
+          fetch_file "scripts/theme/openrigor.png" research_openrigor.png
           fetch_file "scripts/theme/favicon.ico" research_favicon.ico
-          sed -e 's|evaluchat/knowledge/blob/main|evaluchat/research/blob/main|' \
+          sed -e 's|[Oo]pen[Rr]igor/knowledge/blob/main|openrigor/research/blob/main|' \
               -e 's|SITE_LABEL = "Knowledge catalog"|SITE_LABEL = "Research catalog"|' \
-              -e 's|SITE_DOMAIN = "knowledge.evaluchat.org"|SITE_DOMAIN = "research.evaluchat.org"|' \
+              -e 's|SITE_DOMAIN = "knowledge.openrigor.org"|SITE_DOMAIN = "research.openrigor.org"|' \
               scripts/build_site.py > /tmp/local_build_site.norm.py
           python3 - <<'PY'
           from pathlib import Path
@@ -86,19 +86,19 @@ jobs:
           path.write_text(text)
           PY
           if ! diff -q /tmp/research_build_site.py /tmp/local_build_site.norm.py >/dev/null; then
-            echo "ERROR: scripts/build_site.py diverged from evaluchat/research@${REF}."
+            echo "ERROR: scripts/build_site.py diverged from OpenRigor/research@${REF}."
             echo "Fix: copy research's build_site.py, swap GITHUB_BLOB + SITE_LABEL for knowledge, and re-commit."
             diff /tmp/research_build_site.py /tmp/local_build_site.norm.py | head -40
             exit 1
           fi
-          for f in style.css evaluchat.png favicon.ico; do
+          for f in style.css openrigor.png favicon.ico; do
             if ! diff -q "/tmp/research_$f" "scripts/theme/$f" >/dev/null; then
-              echo "ERROR: scripts/theme/$f diverged from evaluchat/research@${REF}."
+              echo "ERROR: scripts/theme/$f diverged from OpenRigor/research@${REF}."
               echo "Fix: copy research's scripts/theme/$f and re-commit."
               exit 1
             fi
           done
-          echo "Site generator in sync with evaluchat/research@${REF}"
+          echo "Site generator in sync with OpenRigor/research@${REF}"
 
       - uses: actions/setup-python@v5
         with:
@@ -121,8 +121,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          git config user.name "evaluchat-bot"
-          git config user.email "hello@evaluchat.com"
+          git config user.name "openrigor-bot"
+          git config user.email "hello@openrigor.org"
 
           WORK=$(mktemp -d)
           cp -a site/. "$WORK/"

@@ -7,7 +7,7 @@ labels: question
 
 ## Question
 
-<!-- What would you like to know or clarify about the Evaluchat knowledge catalog? -->
+<!-- What would you like to know or clarify about the OpenRigor knowledge catalog? -->
 
 ## If proposing a new concept
 
