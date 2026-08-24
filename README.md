@@ -1,19 +1,19 @@
-# Evaluchat Knowledge Catalog
+# OpenRigor Knowledge Catalog
 
-Open knowledge about how **Evaluchat Canvas** works — the product's features, prompts, and behaviour as actually shipped, documented so that teachers, developers, researchers, and AI agents can inspect, question, and improve it.
+Open knowledge about how **OpenRigor Canvas** works — the product's features, prompts, and behaviour as actually shipped, documented so that teachers, developers, researchers, and AI agents can inspect, question, and improve it.
 
-This is the **product truth** half of Evaluchat's open knowledge platform:
+This is the **product truth** half of OpenRigor's open knowledge platform:
 
 | Knowledge (this repo) | Research |
 |-----------------------|----------|
 | Product truth | Research truth |
-| What Evaluchat can do | What we are investigating |
+| What OpenRigor can do | What we are investigating |
 | Features, capabilities, workspace templates | Theory → questions → methods → evidence → findings |
 
-- **Knowledge** documents the platform: capabilities, workflows, and **workspace templates** such as Getting Started and Assignment brief. Those templates are product building blocks Evaluchat instantiates.
+- **Knowledge** documents the platform: capabilities, workflows, and **workspace templates** such as Getting Started and Assignment brief. Those templates are product building blocks OpenRigor instantiates.
 - **Research** documents investigations: a question, a **Method** that uses named platform features, the evidence that method produced, and any finding a human later claims.
 
-A Method selects **levers** (named switches such as `ai_assistance`, `drafting_gate`, `threshold`) whose meaning is defined here. Evaluchat **runs** that profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.
+A Method selects **levers** (named switches such as `ai_assistance`, `drafting_gate`, `threshold`) whose meaning is defined here. OpenRigor **runs** that profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.
 
 The two repositories are deliberately separated. Private strategy never appears in either.
 
@@ -48,8 +48,8 @@ MIT — the docs and any scripts in this repository are MIT-licensed (see [`LICE
 
 ## Related
 
-- Live research catalog: https://research.evaluchat.org
-- Live knowledge catalog: https://knowledge.evaluchat.org
-- Research catalog: https://github.com/evaluchat/research
-- Evaluchat: https://evaluchat.org
+- Live research catalog: https://research.openrigor.org
+- Live knowledge catalog: https://knowledge.openrigor.org
+- Research catalog: https://github.com/openrigor/research
+- OpenRigor: https://openrigor.org
 - OKF v0.2 — the portable knowledge format these catalogs use

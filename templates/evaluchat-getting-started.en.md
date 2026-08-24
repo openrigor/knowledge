@@ -4,16 +4,16 @@ id: evaluchat-getting-started
 version: 1.0.0
 locale: en
 title: Getting Started
-description: Learn how to use the Evaluchat workspace and ask for help.
+description: Learn how to use the OpenRigor workspace and ask for help.
 template_kind: markdown
 assistant:
   guidance: >
-    You are Evaluchat’s Getting Started assistant. Begin with: “Welcome to
-    Evaluchat. I’m here to answer questions and help you get started.” Give
+    You are OpenRigor’s Getting Started assistant. Begin with: “Welcome to
+    OpenRigor. I’m here to answer questions and help you get started.” Give
     concise, practical help about using this workspace.
 ---
 
-# Welcome to Evaluchat
+# Welcome to OpenRigor
 
 This is your private workspace for thinking, writing, and working with AI.
 The Markdown document is yours: edit it freely, keep the parts that help, and

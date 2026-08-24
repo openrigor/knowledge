@@ -5,23 +5,23 @@ lang: en
 origin: native
 status: stable
 title: OSS repository issue & board policy (Model 1)
-description: "How evaluchat/evaluchat GitHub issues and the Evaluchat Board are managed: issues are user-reported bugs and enhancement feature requests only (the public roadmap); internal notes and tech debt live on the project board as drafts; board columns, automations and quirks."
-tags: [evaluchat, oss, github, issues, project-board, policy, governance]
+description: "How openrigor/openrigor GitHub issues and the OpenRigor Board are managed: issues are user-reported bugs and enhancement feature requests only (the public roadmap); internal notes and tech debt live on the project board as drafts; board columns, automations and quirks."
+tags: [openrigor, oss, github, issues, project-board, policy, governance]
 generated:
   by: opencode-go/deepseek-v4-flash
   at: 2026-08-13T08:34:45Z
 sources:
   - id: contributing
-    resource: https://github.com/evaluchat/evaluchat/blob/main/CONTRIBUTING.md
+    resource: https://github.com/openrigor/openrigor/blob/main/CONTRIBUTING.md
     title: CONTRIBUTING.md — Issues and the project board (public statement of this policy)
   - id: board
-    resource: https://github.com/users/evaluchat/projects/1
-    title: Evaluchat Board (GitHub Projects v2)
+    resource: https://github.com/users/openrigor/projects/1
+    title: OpenRigor Board (GitHub Projects v2)
 ---
 
 # OSS repository issue & board policy (Model 1)
 
-> Operating policy for the evaluchat/evaluchat GitHub repository, adopted 2026-08-13.
+> Operating policy for the openrigor/openrigor GitHub repository, adopted 2026-08-13.
 > The public-facing statement lives in CONTRIBUTING.md ("Issues and the project board").
 > This playbook is the internal operating version: how to keep the issue list and board clean.
 
@@ -57,5 +57,5 @@ This is "Model 1" of the three conventions found in major OSS projects (VS Code 
 
 ## History
 
-- 2026-08-12 — first external engagement: waghgauri14 commented on #23 (repo-identity confusion from the rename). Rename context: evaluchat/canvas → evaluchat/evaluchat (a major commercial LMS named Canvas); old URL 301-redirects; in-repo stale references cleaned by the rename-completion commit inside PR #13.
+- 2026-08-12 — first external engagement: waghgauri14 commented on #23 (repo-identity confusion from the rename). Rename context: openrigor/canvas → openrigor/openrigor (a major commercial LMS named Canvas); old URL 301-redirects; in-repo stale references cleaned by the rename-completion commit inside PR #13.
 - 2026-08-13 — policy adopted. Cleanup: 7 shipped issues closed with PR citations (#5–#11), 4 internal notes (#25/#27/#34/#35) closed and converted to Backlog drafts, #44 (CodeRabbit backlog) converted likewise, PR #13 linked to #22 via `Closes #22`.

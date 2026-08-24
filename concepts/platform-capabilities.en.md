@@ -11,13 +11,13 @@ applies_to: "0.5.9"
 generated: { by: cursor-grok/4.6, at: 2026-08-13T14:48:00Z }
 sources:
   - id: essays-workflow
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/essays-workflow.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/essays-workflow.en.md
     title: Essays workflow — proportional drafting unlock (knowledge catalog)
   - id: method-recipe
-    resource: https://github.com/evaluchat/knowledge/blob/main/playbooks/method-recipe.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/playbooks/method-recipe.en.md
     title: The method recipe (knowledge catalog)
   - id: ai-assisted-essay
-    resource: https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/
+    resource: https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/
     title: ai-assisted-essay — published method (research catalog)
 ---
 
@@ -119,5 +119,5 @@ not from a platform verdict.
   `canvas: {version}` so a given result is reproducible against the exact platform and lever
   set that produced it. That catalog shape does not rename live product APIs.
 
-[essays-workflow]: https://github.com/evaluchat/knowledge/blob/main/concepts/essays-workflow.en.md
-[threshold-calibration]: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+[essays-workflow]: https://github.com/openrigor/knowledge/blob/main/concepts/essays-workflow.en.md
+[threshold-calibration]: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md

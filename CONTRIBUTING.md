@@ -1,12 +1,12 @@
-# Contributing to the Evaluchat Knowledge Catalog
+# Contributing to the OpenRigor Knowledge Catalog
 
 Thank you for contributing. This catalog is open, multilingual, and PR-able: anyone can propose a change, and CI checks structure automatically. This file is the house convention — please read it before opening a pull request.
 
 ## What belongs here
 
-**Product truth only.** This repository documents what Evaluchat Canvas currently does and how it is implemented: features, behaviour, prompts as shipped, role/API mechanics, method runtime contracts, and versioned specifications. It is not a place for opinions, marketing claims, competitive comparisons, or internal strategy.
+**Product truth only.** This repository documents what OpenRigor Canvas currently does and how it is implemented: features, behaviour, prompts as shipped, role/API mechanics, method runtime contracts, and versioned specifications. It is not a place for opinions, marketing claims, competitive comparisons, or internal strategy.
 
-Knowledge is product truth (what Evaluchat can do: features, capabilities, workspace templates). Research is research truth (questions → methods → evidence → findings). A Method in the research catalog selects **levers** whose meaning is defined here. Research questions, methods, evidence, and claims belong in the [research catalog](https://github.com/evaluchat/research). Classroom evidence and executable product templates stay in their own repos.
+Knowledge is product truth (what OpenRigor can do: features, capabilities, workspace templates). Research is research truth (questions → methods → evidence → findings). A Method in the research catalog selects **levers** whose meaning is defined here. Research questions, methods, evidence, and claims belong in the [research catalog](https://github.com/openrigor/research). Classroom evidence and executable product templates stay in their own repos.
 
 ## Multilingual convention (house spec)
 

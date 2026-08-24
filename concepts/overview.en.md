@@ -4,38 +4,38 @@ id: overview
 lang: en
 origin: native
 status: stable
-title: 'Evaluchat — open research infrastructure for AI in education'
-description: 'A reader-facing introduction to Evaluchat: an open-source, Markdown-native workspace for defining, running, and inspecting research methods about AI in education, with human-authored findings.'
-tags: [evaluchat, documentation, overview, research, ai-in-education, open-source]
+title: 'OpenRigor — open research infrastructure for AI in education'
+description: 'A reader-facing introduction to OpenRigor: an open-source, Markdown-native workspace for defining, running, and inspecting research methods about AI in education, with human-authored findings.'
+tags: [openrigor, documentation, overview, research, ai-in-education, open-source]
 timestamp: 2026-08-20T11:51:54+02:00
 generated:
   by: codex/gpt-5
   at: 2026-08-20T11:51:54+02:00
 sources:
-  - id: evaluchat-dev-site
-    resource: https://dev.evaluchat.org/
-    title: 'Evaluchat dev site'
+  - id: openrigor-dev-site
+    resource: https://dev.openrigor.org/
+    title: 'OpenRigor dev site'
   - id: research-catalog
-    resource: https://research.evaluchat.org/
-    title: 'Evaluchat research catalog'
+    resource: https://research.openrigor.org/
+    title: 'OpenRigor research catalog'
   - id: research-method
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/research-method.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/research-method.en.md
     title: 'Research method — how methods use platform capabilities and levers'
   - id: evidence-ledger-and-finding-workflow
-    resource: https://github.com/evaluchat/knowledge/blob/main/concepts/evidence-ledger-and-finding-workflow.en.md
+    resource: https://github.com/openrigor/knowledge/blob/main/concepts/evidence-ledger-and-finding-workflow.en.md
     title: 'Evidence Ledger and Finding workflow'
 ---
 
-# Evaluchat — open research infrastructure for AI in education
+# OpenRigor — open research infrastructure for AI in education
 
-Evaluchat is an **open-source research platform for AI in education**. It is a
+OpenRigor is an **open-source research platform for AI in education**. It is a
 Markdown-native workspace where researchers, teachers, builders, and
 policymakers can define, run, inspect, and improve methods for investigating
 how education changes when AI is available.
 
 When AI is part of the work, a completed answer is not enough evidence on its
 own. It may not show what someone understood, decided, explained, or could do
-without assistance. Evaluchat does not prescribe an answer to those questions.
+without assistance. OpenRigor does not prescribe an answer to those questions.
 It makes competing approaches visible, testable, and open to challenge.
 
 Methods, their settings, and the evidence they generate are versioned and
@@ -46,7 +46,7 @@ between classrooms, research, policy, and product work.
 
 ## The research cycle
 
-Evaluchat supports a continuing research cycle rather than a one-way data
+OpenRigor supports a continuing research cycle rather than a one-way data
 pipeline:
 
 ```text
@@ -79,16 +79,16 @@ their relationship.
 
 ## The workspace's role
 
-The Evaluchat Workspace is the common surface on which this work can happen. It
+The OpenRigor Workspace is the common surface on which this work can happen. It
 is Markdown-native, supports AI assistance when wanted, and keeps documents,
 method settings, and provenance available for inspection. A Method selects the
-specific platform capabilities it needs; Evaluchat is not limited to one kind
+specific platform capabilities it needs; OpenRigor is not limited to one kind
 of classroom activity or one theory of learning.
 
 The Workspace is also useful by itself: people can use it for ordinary Markdown
 work, classroom activities, or other collaborative tasks without collecting
 research evidence. Those uses are welcome, but they are incidental to
-Evaluchat's primary purpose: making AI-in-education research methods easier to
+OpenRigor's primary purpose: making AI-in-education research methods easier to
 create, run, share, scrutinise, and improve.
 
 ## Assistance without outsourcing judgement
@@ -106,10 +106,10 @@ help with evidence, interpretation, authorship, or review.
 ## The first complex workflow is an example, not the platform
 
 The CAMDLE-related [AI-assisted essay method][ai-assisted-essay] is the first
-complex workflow supported by Evaluchat. Its corresponding [Essays workflow][essays]
+complex workflow supported by OpenRigor. Its corresponding [Essays workflow][essays]
 shows one way a Method can compose workspace capabilities for a particular
 research question. CAMDLE is a theory under investigation in the research
-catalogue—not a core Evaluchat feature, a default method, or the purpose of the
+catalogue—not a core OpenRigor feature, a default method, or the purpose of the
 platform.
 
 Future methods can use different interventions, activities, measurements, and
@@ -158,17 +158,17 @@ follow those linked records for the exact behaviour of a particular dev build.
 
 ## Contributing
 
-Evaluchat's knowledge and research are open for inspection and contribution.
+OpenRigor's knowledge and research are open for inspection and contribution.
 Corrections and platform-documentation updates are made through pull requests to
-the [knowledge repository](https://github.com/evaluchat/knowledge). Research
+the [knowledge repository](https://github.com/openrigor/knowledge). Research
 questions, evidence, findings, and their review belong in the
 [research catalog][research-catalog].
 
-[research-catalog]: https://research.evaluchat.org/
+[research-catalog]: https://research.openrigor.org/
 [research-method]: /concepts/research-method.en.md
 [evidence-contribution]: /concepts/evidence-contribution.en.md
 [ledger-workflow]: /concepts/evidence-ledger-and-finding-workflow.en.md
 [ledger-playbook]: /playbooks/evidence-ledger-to-finding.en.md
 [capabilities]: /concepts/platform-capabilities.en.md
 [essays]: /concepts/essays-workflow.en.md
-[ai-assisted-essay]: https://research.evaluchat.org/methods/ai-assisted-essay/index.html
+[ai-assisted-essay]: https://research.openrigor.org/methods/ai-assisted-essay/index.html

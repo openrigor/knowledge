@@ -5,56 +5,56 @@ lang: en
 origin: native
 status: draft
 title: Research method — how methods use platform capabilities and levers
-description: "A Method is a published, versioned way of investigating a research question: it selects Knowledge-documented levers, Evaluchat applies that profile in a workspace, and evidence is filed under that method in the research catalog."
-tags: [evaluchat, canvas, method, levers, research, okf]
+description: "A Method is a published, versioned way of investigating a research question: it selects Knowledge-documented levers, OpenRigor applies that profile in a workspace, and evidence is filed under that method in the research catalog."
+tags: [openrigor, canvas, method, levers, research, okf]
 applies_to: 0.5.9
 generated:
   by: cursor-grok/4.6
   at: 2026-08-13T14:48:00Z
 sources:
   - id: ai-assisted-essay
-    resource: https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/
+    resource: https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/
     title: ai-assisted-essay — published method (research catalog)
   - id: camdle-theory
-    resource: https://github.com/evaluchat/research/blob/main/theory/camdle.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/camdle.en.md
     title: CAMDLE — research question and theory (unproven)
   - id: threshold-calibration
-    resource: https://github.com/evaluchat/research/blob/main/theory/threshold-calibration.en.md
+    resource: https://github.com/openrigor/research/blob/main/theory/threshold-calibration.en.md
     title: Threshold calibration — research question (open)
 ---
 
 # Research method — how methods use platform capabilities and levers
 
-> **Applies to:** Canvas apps/web **0.5.9** (dev line). Draft concept — Knowledge documents what Evaluchat can do; a Method in the research catalog selects those capabilities. First published method: [ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/) (product side: [essays-workflow](essays-workflow.en.md)).
+> **Applies to:** Canvas apps/web **0.5.9** (dev line). Draft concept — Knowledge documents what OpenRigor can do; a Method in the research catalog selects those capabilities. First published method: [ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/) (product side: [essays-workflow](essays-workflow.en.md)).
 
 ## Two catalogs
 
 | Knowledge (this repo) | Research |
 |---|---|
 | Product truth | Research truth |
-| What Evaluchat can do | What we are investigating |
+| What OpenRigor can do | What we are investigating |
 | Features, capabilities, workspace templates | Theory → questions → methods → evidence → findings |
 
-Evaluchat **runs** a method profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.
+OpenRigor **runs** a method profile. It does not own research truth. This catalog does not store classroom evidence. The research catalog does not store executable product templates.
 
 A Method is not a folder of methodology essays. It is the object a teacher adds to a workspace: versioned, profiled, measurable.
 
 ## Definition
 
-> **A Method is a published, versioned way of investigating one or more research questions.** It selects named **levers** (platform features documented here), Evaluchat applies that profile in a workspace, and when the run concludes, evidence is filed under that method.
+> **A Method is a published, versioned way of investigating one or more research questions.** It selects named **levers** (platform features documented here), OpenRigor applies that profile in a workspace, and when the run concludes, evidence is filed under that method.
 
 ```text
 Theory / question
     → Method  (published way of investigating that question)
          → selects levers  (which Knowledge-documented features this run engages)
-         → Evaluchat applies that profile in a workspace
+         → OpenRigor applies that profile in a workspace
          → when the run concludes, evidence is filed under that method
     → Finding  (a human claim, reviewed; not the raw export)
 ```
 
 A Method is **not** "a configured surface". The user-interface surface is an implementation consequence, not the definition. The common denominator is **instrumentation + workflow**: what the learner experiences is a workflow, what the method records is a measurement, and what the researcher receives is specified evidence.
 
-A Method may address one research question, several related questions, or one question through several experimental variants. The Essays method ([ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/)), for example, investigates the threshold-calibration question; a future method may address two.
+A Method may address one research question, several related questions, or one question through several experimental variants. The Essays method ([ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/)), for example, investigates the threshold-calibration question; a future method may address two.
 
 **Levers** are the named switches on a method (`ai_assistance`, `drafting_gate`, `threshold`, …). This catalog defines what each lever *means* on the platform (see [platform-capabilities](platform-capabilities.en.md)). The method spec in the research catalog says which levers this investigation uses, defaults, and immutable profiles. Same method version + different lever values = different intervention; evidence must record the resolved values.
 
@@ -147,4 +147,4 @@ The [method recipe](../playbooks/method-recipe.en.md) is a design checklist for 
 
 ## Status
 
-`status: draft`. The pattern is defined here. The Essays workflow ([essays-workflow](essays-workflow.en.md)) is the product-side source of truth for the first published method, [ai-assisted-essay](https://github.com/evaluchat/research/blob/main/methods/ai-assisted-essay/). Nothing in this document describes a plugin framework — methods are enabled and versioned by the platform, not installed as independently loadable artifacts.
+`status: draft`. The pattern is defined here. The Essays workflow ([essays-workflow](essays-workflow.en.md)) is the product-side source of truth for the first published method, [ai-assisted-essay](https://github.com/openrigor/research/blob/main/methods/ai-assisted-essay/). Nothing in this document describes a plugin framework — methods are enabled and versioned by the platform, not installed as independently loadable artifacts.
