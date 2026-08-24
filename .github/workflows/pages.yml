@@ -91,7 +91,7 @@ jobs:
             diff /tmp/research_build_site.py /tmp/local_build_site.norm.py | head -40
             exit 1
           fi
-          for f in style.css OpenRigor.png favicon.ico; do
+          for f in style.css openrigor.png favicon.ico; do
             if ! diff -q "/tmp/research_$f" "scripts/theme/$f" >/dev/null; then
               echo "ERROR: scripts/theme/$f diverged from OpenRigor/research@${REF}."
               echo "Fix: copy research's scripts/theme/$f and re-commit."
