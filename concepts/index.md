@@ -6,7 +6,7 @@ okf_version: "0.2"
 
 The platform documentation for OpenRigor — what the product is and how its
 features work, as shipped. Start with the
-[**OpenRigor — open research infrastructure for AI in education**](/concepts/overview.en.md)
+[**OpenRigor — open research infrastructure for research with digital artifacts**](/concepts/overview.en.md)
 for a reader-facing explanation of the research cycle and where to start. The
 reference list below is the complete index.
 

@@ -4,8 +4,8 @@ id: overview
 lang: en
 origin: native
 status: stable
-title: 'OpenRigor — open research infrastructure for AI in education'
-description: 'A reader-facing introduction to OpenRigor: an open-source, Markdown-native workspace for defining, running, and inspecting research methods about AI in education, with human-authored findings.'
+title: 'OpenRigor — open research infrastructure for research with digital artifacts'
+description: 'An open-source, Markdown-native workspace for defining, running, and inspecting research methods that track and collate digital artifacts, with human-authored findings.'
 tags: [openrigor, documentation, overview, research, ai-in-education, open-source]
 timestamp: 2026-08-20T11:51:54+02:00
 generated:
@@ -26,12 +26,13 @@ sources:
     title: 'Evidence Ledger and Finding workflow'
 ---
 
-# OpenRigor — open research infrastructure for AI in education
+# OpenRigor — open research infrastructure for research with digital artifacts
 
-OpenRigor is an **open-source research platform for AI in education**. It is a
-Markdown-native workspace where researchers, teachers, builders, and
-policymakers can define, run, inspect, and improve methods for investigating
-how education changes when AI is available.
+OpenRigor is an **open-source platform for research with digital
+artifacts**. It is a Markdown-native workspace where researchers, practitioners,
+and policymakers can define, run, inspect, and improve methods for investigating
+how work and capability change when AI is part of the process. Education is the
+first domain where these methods are being worked out.
 
 When AI is part of the work, a completed answer is not enough evidence on its
 own. It may not show what someone understood, decided, explained, or could do
@@ -42,7 +43,7 @@ Methods, their settings, and the evidence they generate are versioned and
 inspectable. People—not the platform or an AI assistant—remain responsible for
 research questions, interpretation, findings, and review. The goal is public,
 collaborative, and accessible research infrastructure that lets evidence travel
-between classrooms, research, policy, and product work.
+between research, policy, and practice.
 
 ## The research cycle
 
@@ -83,13 +84,13 @@ The OpenRigor Workspace is the common surface on which this work can happen. It
 is Markdown-native, supports AI assistance when wanted, and keeps documents,
 method settings, and provenance available for inspection. A Method selects the
 specific platform capabilities it needs; OpenRigor is not limited to one kind
-of classroom activity or one theory of learning.
+of research activity or one theory of learning.
 
 The Workspace is also useful by itself: people can use it for ordinary Markdown
 work, classroom activities, or other collaborative tasks without collecting
 research evidence. Those uses are welcome, but they are incidental to
-OpenRigor's primary purpose: making AI-in-education research methods easier to
-create, run, share, scrutinise, and improve.
+OpenRigor's primary purpose: making research methods that track and collate
+digital artifacts easier to create, run, share, scrutinise, and improve.
 
 ## Assistance without outsourcing judgement
 
@@ -106,15 +107,16 @@ help with evidence, interpretation, authorship, or review.
 ## The first complex workflow is an example, not the platform
 
 The CAMDLE-related [AI-assisted essay method][ai-assisted-essay] is the first
-complex workflow supported by OpenRigor. Its corresponding [Essays workflow][essays]
+complex workflow supported by OpenRigor and the platform's first example domain:
+education. Its corresponding [Essays workflow][essays]
 shows one way a Method can compose workspace capabilities for a particular
 research question. CAMDLE is a theory under investigation in the research
 catalogue—not a core OpenRigor feature, a default method, or the purpose of the
 platform.
 
 Future methods can use different interventions, activities, measurements, and
-evidence contracts. Their differences are part of what the platform is designed
-to make public and comparable.
+evidence contracts across research domains. Their differences are part of what
+the platform is designed to make public and comparable.
 
 ## Where to start
 
@@ -127,18 +129,18 @@ to make public and comparable.
 - Follow the [Evidence Ledger to Finding playbook][ledger-playbook] when a
   Method has accepted evidence ready to inspect.
 
-**You are planning or running an educational activity**
+**You are planning or running a research activity (for example, an educational one)**
 
-- Use a published Method as the accountable way to run an investigation, then
+- Use a published Method as the accountable way to run a research activity, then
   use the [Evidence Contribution workflow][evidence-contribution] to record a
   concluded run when consent and publication conditions are met.
 - Consult the [platform capabilities][capabilities] to understand the
   configurable behaviour and telemetry boundary a Method may select.
 
-**You are building, evaluating, or governing AI-in-education work**
+**You are building, evaluating, or governing AI-assisted work**
 
-- Inspect the open methods, provenance, Ledgers, findings, and review trail in
-  the [research catalog][research-catalog].
+- Inspect methods, provenance, Ledgers, findings, and review trails for research
+  with digital artifacts in the [research catalog][research-catalog].
 - Use the documentation and design records to understand what the platform
   currently does, what remains a design decision, and how to contribute an
   improvement.
