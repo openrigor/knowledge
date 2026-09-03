@@ -89,6 +89,28 @@
     "canonical_resource": "https://github.com/openrigor/knowledge/blob/main/designs/finding-authoring-ux.en.md"
   },
   {
+    "id": "github-research-threat-model",
+    "type": "Concept",
+    "languages": [
+      "en"
+    ],
+    "status": "draft",
+    "description": "Design: privacy and security threat model for Evaluchat v0.8 private GitHub research workspaces — assets, invariants, leak vectors, OAuth/token threats, rotation failure modes, and verification obligations.",
+    "updated": "2026-08-22T00:00:00+00:00",
+    "canonical_resource": "https://github.com/openrigor/knowledge/blob/main/designs/github-research-threat-model.en.md"
+  },
+  {
+    "id": "github-research-workspaces",
+    "type": "Concept",
+    "languages": [
+      "en"
+    ],
+    "status": "draft",
+    "description": "Design: v0.8 private GitHub research workspaces use two independent GitHub Apps, PKCE OAuth with one-time state, AES-256-GCM token envelopes, zero server-side content retention, and browser-memory-only caching.",
+    "updated": "2026-08-22T00:00:00+00:00",
+    "canonical_resource": "https://github.com/openrigor/knowledge/blob/main/designs/github-research-workspaces.en.md"
+  },
+  {
     "id": "method-recipe",
     "type": "Playbook",
     "languages": [
@@ -117,7 +139,7 @@
       "en"
     ],
     "status": "stable",
-    "description": "A reader-facing introduction to OpenRigor: an open-source, Markdown-native workspace for defining, running, and inspecting research methods about AI in education, with human-authored findings.",
+    "description": "An open-source, Markdown-native workspace for defining, running, and inspecting research methods that track and collate digital artifacts, with human-authored findings.",
     "updated": "2026-08-20T11:51:54+02:00",
     "canonical_resource": "https://github.com/openrigor/knowledge/blob/main/concepts/overview.en.md"
   },

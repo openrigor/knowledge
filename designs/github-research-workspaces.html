@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GitHub research workspaces — trust boundary, OAuth, tokens, and retention</title>
+<link rel="icon" href="../favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="../index.html" aria-label="Knowledge catalog">
+        <img class="logo-mark" src="../assets/openrigor.png" width="32" height="32" alt=""/>
+        openrigor
+      </a>
+    </div>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="https://github.com/openrigor/knowledge">GitHub</a>
+      <a href="https://github.com/openrigor/knowledge/blob/main/README.md">README</a>
+      <a href="https://openrigor.org/" class="nav-cta">Open openrigor ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+<p class="breadcrumb"><p class="breadcrumb"><a href="../index.html">Knowledge catalog</a><span class="sep">/</span><a href="index.html">Designs</a><span class="sep">/</span><span>GitHub research workspaces — trust boundary, OAuth, tokens, and retention</span></p></p>
+  <article class="content">
+<h1>GitHub research workspaces — trust boundary, OAuth, tokens, and retention</h1>
+<table class="facts"><tr><th>type</th><td>Concept</td></tr><tr><th>id</th><td>github-research-workspaces</td></tr><tr><th>status</th><td>draft</td></tr><tr><th>lang</th><td>en</td></tr><tr><th>origin</th><td>native</td></tr><tr><th>generated</th><td>by=cursor/composer-2.5, at=2026-08-22T00:00:00Z</td></tr><tr><th>sources</th><td>{&#x27;id&#x27;: &#x27;github-research-threat-model&#x27;, &#x27;resource&#x27;: &#x27;https://github.com/evaluchat/knowledge/blob/main/designs/github-research-threat-model.en.md&#x27;, &#x27;title&#x27;: &#x27;GitHub research workspaces — threat model (knowledge catalog)&#x27;}, {&#x27;id&#x27;: &#x27;research-repository-contract&#x27;, &#x27;resource&#x27;: &#x27;https://github.com/evaluchat/evaluchat/blob/feat/v08-01-contract/packages/shared/src/research-repository.ts&#x27;, &#x27;title&#x27;: &#x27;v1 GitHub research repository contract (Zod schemas)&#x27;}</td></tr></table>
+
+<article class="body"><h1 id="github-research-workspaces-trust-boundary-oauth-tokens-and-retention">GitHub research workspaces — trust boundary, OAuth, tokens, and retention</h1>
+<blockquote>
+<p>Design note (2026-08-22, decision-record status: draft). Consolidates ADR-0001
+through ADR-0005 for Evaluchat v0.8 private GitHub research workspaces. Design
+intent and platform guarantees — not contributor setup. Threat model and
+verification obligations live in
+<a href="https://github.com/openrigor/knowledge/blob/main/designs/designs/github-research-threat-model.en.md">github-research-threat-model.en.md</a>.</p>
+</blockquote>
+<h2 id="1-problem">1. Problem</h2>
+<p>Evaluchat must edit a researcher's selected private repository and, only after
+an explicit publication confirmation, create a draft pull request in the public
+<code>evaluchat/research</code> catalogue. The platform must:</p>
+<ul>
+<li>prevent a credential compromise on either path from crossing the private/public
+  boundary;</li>
+<li>bind GitHub App user authorization to the initiating browser session;</li>
+<li>protect bearer tokens at rest and through rotation;</li>
+<li>retain no private repository content outside the repository itself; and</li>
+<li>keep private content out of HTTP caches and browser persistence.</li>
+</ul>
+<h2 id="2-two-app-trust-boundary-adr-0001">2. Two-app trust boundary (ADR-0001)</h2>
+<h3 id="decision">Decision</h3>
+<p>Use two independently configured GitHub Apps:</p>
+<ol>
+<li>The user-facing <strong>Evaluchat Research Workspace App</strong> is installed only on
+   repositories selected by the researcher. It requests:</li>
+<li>Metadata: read</li>
+<li>Contents: read and write</li>
+<li>The operator-controlled <strong>Evaluchat Catalogue Publisher App</strong> is installed
+   only on <code>evaluchat/research</code>. It requests:</li>
+<li>Metadata: read</li>
+<li>Contents: write</li>
+<li>Pull requests: write</li>
+</ol>
+<p>The workspace app never receives Pull requests, Administration, Workflows,
+email, or broad account permissions. The publisher app never receives access
+to a researcher's private repository. Installation access tokens are minted
+just in time for the selected installation and are never persisted.</p>
+<p>Repository creation is a GitHub-hosted hand-off from the Private Research
+Starter template with private visibility preselected. Evaluchat does not ask
+for Administration permission to create repositories.</p>
+<p>Publication stops at a <code>draft: true</code> pull request. Evaluchat does not ready,
+approve, or merge a public-catalogue pull request.</p>
+<h3 id="consequences">Consequences</h3>
+<ul>
+<li>A workspace credential cannot publish to the catalogue, and a publisher
+  credential cannot read a private workspace.</li>
+<li>Operators must manage two app registrations, keys, installations, and
+  revocation procedures.</li>
+<li>Implementation must reject any installation or repository ID outside
+  the app's expected trust domain before requesting an installation token.</li>
+</ul>
+<h2 id="3-oauth-flow-pkce-and-one-time-state-adr-0002">3. OAuth flow — PKCE and one-time state (ADR-0002)</h2>
+<p>Product sign-in does not grant private-repository access. The Research
+Workspace App requires a separate GitHub App user authorization.</p>
+<h3 id="decision_1">Decision</h3>
+<p>The Research Workspace App uses GitHub's OAuth web application flow with:</p>
+<ul>
+<li>a fresh high-entropy PKCE verifier and <code>S256</code> challenge per attempt;</li>
+<li>a fresh high-entropy <code>state</code> value per attempt;</li>
+<li>server-side state that binds the attempt to the authenticated Evaluchat user,
+  intended return location, PKCE verifier, creation time, and expiry;</li>
+<li>an exact redirect URI allowlist and an HTTPS callback outside local
+  development;</li>
+<li>atomic, one-time consumption of <code>state</code> before the authorization code is
+  exchanged; and</li>
+<li>a short expiry, after which the attempt fails closed and must restart.</li>
+</ul>
+<p>The callback rejects missing, mismatched, expired, already-consumed, or
+wrong-user state. Neither authorization codes nor PKCE verifiers are written to
+logs, analytics, browser storage, or error-reporting context. A callback
+failure does not fall back to an unbound token exchange.</p>
+<p>The stored post-callback destination is either a server-defined route ID or a
+validated relative Evaluchat path. The OAuth redirect-URI allowlist constrains
+where GitHub may return the authorization response; it does not constrain the
+post-callback destination, which is validated independently.</p>
+<h3 id="consequences_1">Consequences</h3>
+<ul>
+<li>Capturing an authorization code alone is insufficient to complete the flow.</li>
+<li>Callback replay and login-CSRF attempts fail at one-time state consumption.</li>
+<li>Multiple tabs may start separate flows, but each callback is valid only for
+  its own state record and verifier.</li>
+</ul>
+<h2 id="4-token-envelope-and-rotation-adr-0003">4. Token envelope and rotation (ADR-0003)</h2>
+<p>The workspace app needs an expiring GitHub user access token so commits are
+attributable to the researcher and constrained by both user and installation
+permissions. GitHub's current default lifetimes are eight hours for a user
+access token and six months for its refresh token. GitHub rotates both values
+during refresh.</p>
+<h3 id="decision_2">Decision</h3>
+<p>The authorization-code exchange accepts only an expiring user-token response.
+At issuance, the flow requires non-empty string values for <code>access_token</code> and
+<code>refresh_token</code>, positive integer values for <code>expires_in</code> and
+<code>refresh_token_expires_in</code>, and <code>token_type: "bearer"</code>. Any response that is
+missing a field or contains an empty, mistyped, non-positive, or otherwise
+invalid value is rejected and requires reauthorization. GitHub omits the
+expiry and refresh fields when user-token expiration is disabled; Evaluchat
+never persists that non-expiring credential response.</p>
+<p>Persist access and refresh tokens only inside a dedicated server-side
+AES-256-GCM envelope. Each encrypted field records:</p>
+<ul>
+<li>an envelope version;</li>
+<li>a non-secret key identifier (<code>kid</code>);</li>
+<li>a unique 96-bit nonce;</li>
+<li>ciphertext; and</li>
+<li>the 128-bit authentication tag.</li>
+</ul>
+<p>The 256-bit encryption key is supplied by the server's secret manager or
+runtime environment and is never stored beside ciphertext. Authenticated
+additional data binds the envelope to its credential record, token kind, app,
+and envelope version so ciphertext cannot be swapped between records.</p>
+<p>Refresh begins before access-token expiry and is serialized per credential.
+GitHub rotation invalidates both the previous access token and the previous
+refresh token, so the GitHub call and local credential commit cannot be treated
+as an end-to-end atomic transaction. Before invoking GitHub rotation, Evaluchat
+writes a durable blocked marker for the credential version. A successful local
+commit atomically replaces both encrypted tokens and their expiries with
+GitHub's rotated values before clearing that marker. Old values are not retained
+after that commit.</p>
+<p>If the process fails after GitHub rotation but before the local commit,
+recovery keeps the binding blocked and reconciles which complete credential set
+GitHub actually accepts instead of assuming atomic success or failure. It
+commits the accepted rotated set if recoverable; otherwise it requires
+reauthorization. Key rotation decrypts using the recorded <code>kid</code> and re-encrypts
+under the active key. Installation access tokens are generated just in time and
+never stored.</p>
+<p>Authentication-tag failure, an unknown <code>kid</code>, refresh rejection, a missing
+rotated token, or an interrupted/ambiguous refresh fails closed. Evaluchat
+marks the binding blocked and requires reconciliation or reauthorization; it
+does not continue with guessed or partially updated credentials.</p>
+<h3 id="consequences_2">Consequences</h3>
+<ul>
+<li>Database disclosure does not reveal plaintext GitHub credentials without the
+  separately managed encryption key.</li>
+<li>Operations must retain old decryption keys only for the bounded period needed
+  to rewrap existing envelopes, then retire them.</li>
+<li>Storage work must use compare-and-swap or equivalent serialization to
+  prevent concurrent refreshes from overwriting the newest rotated token.</li>
+<li>Revocation and rotation failure behavior is expanded in the
+  <a href="https://github.com/openrigor/knowledge/blob/main/designs/designs/github-research-threat-model.en.md">threat model</a>.</li>
+</ul>
+<h2 id="5-no-server-side-content-retention-adr-0004">5. No server-side content retention (ADR-0004)</h2>
+<p>The private Git repository is the source of truth for research artifacts and
+their ordinary history.</p>
+<h3 id="decision_3">Decision</h3>
+<p>Repository bodies, frontmatter, evidence, ledger snapshots, seal files, and
+their normal Git history live <strong>only</strong> in the bound private repository.</p>
+<p>Evaluchat may retain only:</p>
+<ul>
+<li>AES-256-GCM-encrypted credentials;</li>
+<li>numeric GitHub repository and installation IDs;</li>
+<li>encrypted repository display metadata;</li>
+<li>the managed branch and commit/blob pointers;</li>
+<li>cryptographic hashes;</li>
+<li>idempotency and reconciliation state;</li>
+<li>webhook delivery IDs; and</li>
+<li>publication references.</li>
+</ul>
+<p>Evaluchat never retains artifact bodies, derived title indexes, commit
+messages, raw webhook payloads, or private-content excerpts. Private content is
+excluded from LangGraph Store, thread checkpoints, tracing, logs, telemetry,
+analytics, backups, search indexes, queues, dead-letter records, and job
+payloads. Error records use stable artifact IDs and non-content error codes.</p>
+<p>Webhook HMAC is validated against the raw request bytes before parsing. Only
+the minimum fields needed for an installation, installation-repositories, or
+push event are extracted. The raw body is discarded, and <code>X-GitHub-Delivery</code>
+is retained only as an idempotency key. Delivery-ID retention covers GitHub's
+redelivery window: at least three days for GitHub.com and at least seven days
+for GitHub Enterprise Server. An expired or unknown delivery ID triggers
+reconciliation against current repository state; Evaluchat never re-applies
+the event.</p>
+<h3 id="consequences_3">Consequences</h3>
+<ul>
+<li>A repository deletion or revoked grant does not leave an Evaluchat content
+  archive behind.</li>
+<li>Private repository AI must be stateless, keep conversation in browser memory,
+  and run with tracing disabled. If zero-trace behavior cannot be demonstrated,
+  AI remains disabled while manual editing remains available.</li>
+<li>Jobs must carry IDs, pointers, and hashes and fetch authorized bytes just in
+  time; content cannot be recovered from a retry queue.</li>
+<li>Operational debugging cannot depend on body excerpts or commit messages.</li>
+</ul>
+<h2 id="6-browser-memory-only-cache-policy-adr-0005">6. Browser-memory-only cache policy (ADR-0005)</h2>
+<p>Even without server retention, HTTP caches and browser persistence can leave
+private artifacts on shared machines, CDN nodes, framework caches, service
+workers, crash recovery, or future sessions.</p>
+<h3 id="decision_4">Decision</h3>
+<p>Every response that contains private repository content, content-derived
+previews, or content-bearing errors sends:</p>
+<pre><code class="language-http">Cache-Control: no-store
+</code></pre>
+<p>Routes are dynamically evaluated and excluded from framework, reverse-proxy,
+and CDN response caches. Repository requests must not opt into revalidation,
+incremental static regeneration, or service-worker caching.</p>
+<p>Decrypted repository content and uncommitted edits exist in browser memory
+only. They are not written to <code>localStorage</code>, <code>sessionStorage</code>, IndexedDB, the
+Cache API, client databases, persisted state stores, analytics buffers, or
+offline drafts. Navigation and unload warn while a draft is dirty, but the
+warning does not persist the draft.</p>
+<p>Client code clears in-memory content on disconnect, sign-out, workspace
+switch, authorization loss, and terminal repository state. Browser extensions,
+screen capture, swap, and compromised endpoints remain outside guarantees that
+a web application can enforce and are disclosed as residual risk.</p>
+<p>User authorization and App installation are separate GitHub grants. Revocation
+of the user's GitHub App authorization invalidates the associated access and
+refresh tokens; the client clears in-memory content and refuses refresh, even
+when refresh-token expiry would otherwise preserve uncommitted text briefly for
+copy or download.</p>
+<p>Installation removal or loss of repository access revokes the repository
+grant, not the user's authorization. GitHub may reject subsequent access or
+token refresh. The workspace then enters the status-model state matching the
+reported condition: <code>blocked</code> with <code>permission_lost</code> for lost repository access,
+or <code>blocked</code> with <code>installation_suspended</code> for an unavailable installation, and
+offers the corresponding reinstall or access-restoration recovery. Only a
+refresh failure caused by user-grant invalidation maps to <code>read_only</code> with
+<code>authorization_required</code> and offers reauthorization. Repository-access and
+installation failures are not treated as user-authorization revocation, and do
+not by themselves assert that both user tokens are invalid.</p>
+<h3 id="consequences_4">Consequences</h3>
+<ul>
+<li>Reloading loses uncommitted work; the product must make "Not committed" state
+  and explicit <strong>Commit changes</strong> behavior clear.</li>
+<li>Offline editing and cross-device draft recovery are intentionally unavailable
+  in v1.</li>
+<li>Route tests must verify <code>no-store</code> on successful and error responses.</li>
+</ul>
+<h2 id="7-what-this-design-does-not-do">7. What this design does NOT do</h2>
+<ul>
+<li>Does not replace the
+  <a href="https://github.com/openrigor/knowledge/blob/main/designs/designs/github-research-threat-model.en.md">threat model</a>
+  — leak vectors, verification obligations, and rotation failure modes are
+  documented there.</li>
+<li>Does not describe contributor local setup — see the canvas repo
+  <code>CONTRIBUTING.md</code>.</li>
+<li>Does not ready, approve, or merge public-catalogue pull requests.</li>
+</ul>
+<h2 id="8-sequencing">8. Sequencing</h2>
+<ol>
+<li>Ratify Zod schemas and fixtures in <code>packages/shared</code> (v1 repository contract).</li>
+<li>Implement two-app registration, OAuth PKCE flow, and token envelope storage.</li>
+<li>Enforce no-retention and <code>no-store</code> policies across server, client, and AI
+   graph paths.</li>
+<li>Promote to <code>concepts/</code> once v0.8 ships.</li>
+</ol></article>
+
+  </article>
+</main>
+<footer class="site-footer">
+  <p>
+    <a href="https://openrigor.org">openrigor.com</a>
+    &middot; Knowledge catalog
+    &middot; <a href="https://github.com/openrigor/knowledge">GitHub</a>
+    &middot; <a href="mailto:hello@openrigor.com">hello@openrigor.com</a>
+  </p>
+  <p class="copyright">© 2026 OpenRigor · Open Knowledge Format</p>
+</footer>
+</body>
+</html>
